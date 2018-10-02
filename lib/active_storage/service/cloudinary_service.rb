@@ -21,7 +21,7 @@ module ActiveStorage
 
     def upload(key, io, checksum: nil)
       instrument :upload, key: key, checksum: checksum do
-        Cloudinary::Uploader.upload_large(io, public_id: key, resource_type: 'auto', chunk_size: 6_000_000, quality: '80', eager_async: true )
+        Cloudinary::Uploader.upload(io, public_id: key, resource_type: 'auto', quality: '80', eager_async: true )
       end
     end
 
